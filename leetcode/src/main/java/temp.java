@@ -133,7 +133,6 @@ public class temp {
 
         public static void main(String[] args) {
 
-Integer.M
 
 //        new temp().trap(new int[]{0,1,0,2,1,0,1,3,2,1,2,1});
 //

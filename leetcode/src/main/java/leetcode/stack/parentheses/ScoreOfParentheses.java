@@ -1,4 +1,4 @@
-package leetcode.stack;
+package leetcode.stack.parentheses;
 
 import java.util.Stack;
 
