@@ -92,33 +92,33 @@ public class temp {
         if (s == null || p == null) {
             return false;
         }
-        boolean[][] dp = new boolean[s.length()+1][p.length()+1];
+        boolean[][] dp = new boolean[s.length() + 1][p.length() + 1];
         dp[0][0] = true;
         for (int i = 0; i < p.length(); i++) {
-            if (p.charAt(i) == '*' && dp[0][i-1]) {
-                dp[0][i+1] = true;
+            if (p.charAt(i) == '*' && dp[0][i - 1]) {
+                dp[0][i + 1] = true;
             }
         }
-        for (int i = 0 ; i < s.length(); i++) {
+        for (int i = 0; i < s.length(); i++) {
             for (int j = 0; j < p.length(); j++) {
                 if (p.charAt(j) == '.') {
-                    dp[i+1][j+1] = dp[i][j];
+                    dp[i + 1][j + 1] = dp[i][j];
                     continue;
                 }
                 if (p.charAt(j) == s.charAt(i)) {
-                    dp[i+1][j+1] = dp[i][j];
+                    dp[i + 1][j + 1] = dp[i][j];
                     continue;
                 }
                 if (p.charAt(j) == '*') {
                     //a* only counts as empty
-                    if( dp[i+1][j-1]){
-                        dp[i+1][j+1] =true;
+                    if (dp[i + 1][j - 1]) {
+                        dp[i + 1][j + 1] = true;
                         continue;
                     }
 
                     //a* only counts as empty
-                    if (p.charAt(j-1) == s.charAt(i) || p.charAt(j-1) == '.') {
-                        dp[i+1][j+1] = dp[i][j+1];  //in this case, a* counts as multiple a
+                    if (p.charAt(j - 1) == s.charAt(i) || p.charAt(j - 1) == '.') {
+                        dp[i + 1][j + 1] = dp[i][j + 1];  //in this case, a* counts as multiple a
 
                     }
                 }
@@ -128,46 +128,9 @@ public class temp {
     }
 
 
-
-
-
-        public static void main(String[] args) {
-
-
-//        new temp().trap(new int[]{0,1,0,2,1,0,1,3,2,1,2,1});
-//
-//        Random random = new Random();
-//        ArrayList<int[]> res = new ArrayList<>();
-//        for (int i = 0; i < 100; i++) {
-//           res.add(new int[]{random.nextInt(100),random.nextInt(100)});
-//        }
-//        Long start = System.nanoTime();
-//        new temp().merge(res.toArray(new int[res.size()][2]));
-//        System.out.println(System.nanoTime()-start);
-//
-//        res.clear();
-//        start = System.nanoTime();
-//        for (int i = 0; i < 1000; i++) {
-//            res.add(new int[]{random.nextInt(1000),random.nextInt(1000)});
-//        }
-//        System.out.println(System.nanoTime()-start);
-//
-//        res.clear();
-//        start = System.nanoTime();
-//        for (int i = 0; i < 10000; i++) {
-//            res.add(new int[]{random.nextInt(10000),random.nextInt(10000)});
-//        }
-//        System.out.println(System.nanoTime()-start);
-
-
-//        1793296   64771817
-//        1401815    1086015
-//        2606232    2481080
-
+    public static void main(String[] args) {
 
     }
-
-
 
 
 
