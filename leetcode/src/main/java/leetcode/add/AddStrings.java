@@ -17,24 +17,23 @@ public class AddStrings {
         while (i >= 0 || j >= 0) {
             int a = i >= 0 ? num1.charAt(i--) - '0' : 0;
             int b = j >= 0 ? num2.charAt(j--) - '0' : 0;
-            int sum = a + b + over;
-            sb.append(sum % 10);
-            over = sum / 10;
+
+            sb.append((a + b + over) % 10);
+            over = (a + b + over) / 10;
         }
 
+        if (over > 0) {
+            // 9 + 9  = 18
+            sb.append(1);
+        }
 
-
-        return over==1 ? sb.append(1).reverse().toString() : sb.reverse().toString();
+        return sb.reverse().toString();
 
     }
 
 
 
-
-
-
-
     public static void main(String[] args) {
-        System.out.println( new AddStrings().addStrings("584","18"));
+        System.out.println(new AddStrings().addStrings("584", "18"));
     }
 }

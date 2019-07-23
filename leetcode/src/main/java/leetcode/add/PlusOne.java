@@ -11,7 +11,6 @@ public class PlusOne {
 
         int plus[] = new int[]{1};
         int i = digits.length-1, j = plus.length-1;
-        StringBuilder sb = new StringBuilder();
         int over = 0;
         while (i >= 0|| j >= 0) {
             int a = (i >= 0) ? digits[i--] : 0;
