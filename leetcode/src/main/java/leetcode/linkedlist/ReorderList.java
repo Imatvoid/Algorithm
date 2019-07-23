@@ -39,8 +39,10 @@ public class ReorderList {
             pre.next=head;
             head=head.next;
             pre.next.next=tail;
-            pre=tail;
             tail=tail.next;
+
+            pre=pre.next.next;
+
 
         }
         pre.next = head;

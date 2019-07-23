@@ -1,6 +1,6 @@
 package leetcode.linkedlist;
 
-public class RemoveNthNodeFromEndofList {
+public class RemoveNthNodeFromEndOfList {
 
 
     /**
