@@ -5,6 +5,41 @@ import java.util.List;
 
 public class SpiralMatrix {
 
+
+    /**
+     * 自我重复测试的空方法
+     * @param matrix
+     * @return
+     */
+    public List<Integer> spiralOrder2(int[][] matrix) {
+
+        return null;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     /**
      * human
      * @param matrix
