@@ -2,6 +2,32 @@ package leetcode.greedy;
 
 public class JumpGame {
 
+    /**
+     * 通用解法
+     * @param nums
+     * @return
+     */
+    public boolean canJumpII(int[] nums) {
+
+        int n = nums.length;
+        int cur=0,pre=0,i=0;
+        int count = 0;
+        while(cur<n-1){
+            //count++;
+            pre = cur;
+            for(;i<=pre;i++){
+                cur = Math.max(cur,i+nums[i]);
+            }
+            if(pre == cur){
+                return false;
+            }
+
+
+        }
+        return true;
+
+    }
+
 
     /**
      * 不断更新最大可覆盖范围
