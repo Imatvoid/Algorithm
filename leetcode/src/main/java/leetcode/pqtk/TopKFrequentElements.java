@@ -1,4 +1,4 @@
-package leetcode.hashmap;
+package leetcode.pqtk;
 
 import java.util.ArrayList;
 import java.util.HashMap;
