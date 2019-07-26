@@ -2,7 +2,7 @@
 
 | 题目  | 描述 |    |
 |---|  ---  | --- |
-| RepeatedDNASequences  | DNA中重复序列,可以直接用set  | +1 |
+| RepeatedDNASequences 重复的DNA序列  | DNA中重复序列,可以直接用set  | +1 |
 |   |   | +  |
 |   |   | +  |
 |   |   | +  |

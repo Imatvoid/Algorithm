@@ -1,4 +1,6 @@
-<https://leetcode.com/problems/repeated-dna-sequences/>
+Repeated DNA Sequences  
+重复的DNA序列   
+<https://leetcode.com/problems/repeated-dna-sequences/>  
 <https://leetcode-cn.com/problems/repeated-dna-sequences/>
 
 ## 描述
