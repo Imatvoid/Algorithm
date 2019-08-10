@@ -1,4 +1,4 @@
-package leetcode.twopointer;
+package leetcode.array;
 
 public class MergeSortedArray {
 

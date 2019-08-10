@@ -11,22 +11,42 @@ public class Prac {
 
 
     public static void main(String[] args) throws InterruptedException {
-
+        System.out.println(new Prac().search(new int[]{1,3},3));
 
     }
 
-    public ListNode deleteDuplicates(ListNode head) {
-        if (head == null) return head;
+    public int search(int[] nums, int target) {
 
-        ListNode p = head;
-        while (head != null && head.next != null) {
-            if (head.val == head.next.val) {
-                head.next = head.next.next;
+
+        int left = 0;
+        int right = nums.length;
+
+        while (left < right) {
+
+            int mid = left + (right - left) / 2;
+
+            if (nums[mid] == target) return mid;
+            //左边有序 小 - 大
+            if (nums[mid] > nums[right]) {
+
+                if (nums[left] <= target && nums[mid] > target) {
+                    right = mid;
+                } else {
+                    left = mid + 1;
+                }
             } else {
-                head = head.next;
+                // 右边有序
+                if (nums[mid] < target && nums[right] >= target) {
+                    left = mid + 1;
+                } else {
+                    right = mid;
+                }
             }
+
+
         }
-        return head;
+
+        return -1;
     }
 
 

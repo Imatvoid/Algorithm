@@ -1,4 +1,4 @@
-package leetcode.medium;
+package leetcode.binsearch;
 
 public class FindMinimumInRotatedSortedArray {
 
@@ -6,20 +6,20 @@ public class FindMinimumInRotatedSortedArray {
         if(nums.length == 1){
             return  nums[0];
         }
-        int start = 0 ;
-        int end = nums.length-1;
+        int left = 0 ;
+        int right = nums.length-1;
         int min = Integer.MAX_VALUE;
-        while(start<=end){
+        while(left<right){
             // 防止溢出
-            int mid =start + (end-start)/2;
+            int mid =left + (right-left)/2;
             //左边有序 小 - 大
-            if(nums[mid]>nums[end]){
-                min = nums[start] < min ? nums[start] : min;
-                start = mid + 1;
+            if(nums[mid]>nums[right]){
+                min = nums[left] < min ? nums[left] : min;
+                left = mid + 1;
             }else {
             //右边有序 小 - 大
                 min = nums[mid] < min ? nums[mid] : min;
-                end = mid -1;
+                right = mid;
             }
 
         }

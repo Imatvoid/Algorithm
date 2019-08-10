@@ -33,6 +33,24 @@ public class BinSearch {
     }
 
     /**
+     * 找第一个大于
+     *
+     * @param nums
+     * @param target
+     * @return
+     */
+    int findFirstGT2(int[] nums, int target) {
+        int left = 0, right = nums.length-1;
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            if (nums[mid] <= target) left = mid + 1;
+            else right = mid-1;
+        }
+        System.out.println("left:"+left+",right:"+right);
+        return left;
+    }
+
+    /**
      * 找第一个不大于
      *
      * @param nums
@@ -91,8 +109,17 @@ public class BinSearch {
 
 
     public static void main(String[] args) {
+
+//        System.out.println(new BinSearch().findFirstEQ(new int[]{1, 3}, 3));
+//        System.out.println(new BinSearch().findFirstEQ(new int[]{3}, 3));
+
+
         System.out.println(new BinSearch().findFirstGT(new int[]{1, 2, 3, 4, 5}, 3));
         System.out.println(new BinSearch().findFirstGT(new int[]{1, 2, 3, 4}, 3));
+
+        System.out.println(new BinSearch().findFirstGT2(new int[]{1, 2, 3, 4, 5}, 3));
+        System.out.println(new BinSearch().findFirstGT2(new int[]{1, 2, 3, 4}, 3));
+
 
         System.out.println(new BinSearch().findFirstNGT(new int[]{1, 2, 3, 4, 5}, 3));
         System.out.println(new BinSearch().findFirstNGT(new int[]{1, 2, 3, 4}, 3));
