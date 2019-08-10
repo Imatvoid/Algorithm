@@ -44,22 +44,6 @@ public class temp {
     }
 
 
-    public int trap(int[] height) {
-        Stack<Integer> st = new Stack();
-        int i = 0, res = 0, n = height.length;
-        while (i < n) {
-            if (st.isEmpty() || height[i] <= height[st.peek()]) {
-                st.push(i++);
-            } else {
-                int t = st.peek();
-                st.pop();
-                if (st.isEmpty()) continue;
-                res += (Math.min(height[i], height[st.peek()]) - height[t]) * (i - st.peek() - 1);
-            }
-        }
-        return res;
-
-    }
 
 
     public int numDecodings(String s) {

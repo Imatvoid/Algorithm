@@ -1,30 +1,53 @@
 package leetcode.binsearch;
 
-public class FindtheDuplicateNumber {
+public class FindTheDuplicateNumber {
 
+
+    public int findDuplicate3(int[] nums) {
+        int n = nums.length;
+        for (int i = 0; i < n; i++) {
+            if (nums[nums[i]-1] != nums[i]) {
+                swap(nums, nums[i]-1, i);
+                i--;
+            }
+        }
+        for (int i = 0; i < n; i++) {
+            if(nums[i] != i+1){
+                return nums[i];
+            }
+        }
+        return  -1;
+    }
+
+    public void swap(int[] nums, int i, int j) {
+        int t = nums[i];
+        nums[i] = nums[j];
+        nums[j] = t;
+    }
     /**
-     *  第一个大于
-     *  nO(logn)
+     *
+     *  nlogn
      * @param nums
      * @return
      */
     public int findDuplicate(int[] nums) {
-
-
         int n = nums.length;
-        int left =1,right= n-1;
-        while(left<=right){
+        int left =1,right=n;
+        // 结束left=right
+        while(left<right){
             int mid = left + (right-left)/2;
             int count =0;
             for(int i:nums){
                 if(i<=mid)
                     count ++;
             }
-            if(count<=mid){
-                left = mid +1;
+            System.out.println(mid);
+            if(count>mid){
+                right = mid;
+
             }
             else{
-                right = mid-1;
+                left = mid +1;
             }
         }
         return left;

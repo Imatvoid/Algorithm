@@ -4,7 +4,7 @@
 
 ### 第一部分
 
-| 序号  | 题目                                                         | 8个方向,跳K次,求还留在棋盘的概率              | 难度                        | 出题指数 |      |
+| 序号  | 题目                                                         | 描述                                          | 难度                        | 出题指数 |      |
 | ----- | ------------------------------------------------------------ | --------------------------------------------- | --------------------------- | -------- | ---- |
 | # 688 | [“马”在棋盘上的概率](https://leetcode-cn.com/problems/knight-probability-in-chessboard) | 8个方向,跳K次,求还留在棋盘的概率 count/8^K    | 中等                        | ⭐        |      |
 | # 692 | [前K个高频单词](https://leetcode-cn.com/problems/top-k-frequent-words) | 优先级队列,topk问题                           | 中等                        | ⭐        |      |
@@ -34,7 +34,7 @@
 ### 第二部分
 
 
-| 题号 |                       题目显示相关标签                       | 通过率 | 难度 | 出题指数 | 出现频率 |
+| 题号 |                       题目显示相关标签                       | 简要 | 难度 | 出题指数 | 出现频率 |
 | :--- | :----------------------------------------------------------: | :----- | :--- | :------- | :------- |
 | # 3   | [无重复字符的最长子串](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters) | 30.4% | 中等 | ⭐⭐⭐⭐ |      |
 | # 5   | [最长回文子串](https://leetcode-cn.com/problems/longest-palindromic-substring) | 26.1% | 中等 | ⭐⭐⭐⭐ |      |
@@ -65,36 +65,28 @@
 
 
 
-
-
-
-
-
-
-
-
-| 题号  | 题目显示相关标签                                             | 通过率 | 难度 | 出题指数 | 出现频率 |
-| ----- | ------------------------------------------------------------ | ------ | ---- | -------- | -------- |
-| # 130 | [被围绕的区域](https://leetcode-cn.com/problems/surrounded-regions) | 37.1%  | 中等 | ⭐        |          |
-| # 2   | [两数相加](https://leetcode-cn.com/problems/add-two-numbers) | 34.9%  | 中等 | ⭐⭐⭐⭐     |          |
-| # 153 | [寻找旋转排序数组中的最小值](https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array) | 49.3%  | 中等 | ⭐        |          |
-| # 278 | [第一个错误的版本](https://leetcode-cn.com/problems/first-bad-version) | 32.4%  | 简单 | ⭐        |          |
-| # 137 | [只出现一次的数字 II](https://leetcode-cn.com/problems/single-number-ii) | 64.4%  | 中等 | ⭐        |          |
-| # 79  | [单词搜索](https://leetcode-cn.com/problems/word-search)     | 38.3%  | 中等 | ⭐        |          |
-| # 200 | [岛屿数量](https://leetcode-cn.com/problems/number-of-islands) | 44.7%  | 中等 | ⭐        |          |
-| # 88  | [合并两个有序数组](https://leetcode-cn.com/problems/merge-sorted-array) | 44.7%  | 简单 | ⭐⭐       |          |
-| # 93  | [复原IP地址](https://leetcode-cn.com/problems/restore-ip-addresses) | 45.2%  | 中等 | ⭐        |          |
-| # 196 | [删除重复的电子邮箱](https://leetcode-cn.com/problems/delete-duplicate-emails) | 54.3%  | 简单 | ⭐        |          |
-| # 46  | [全排列](https://leetcode-cn.com/problems/permutations)      | 70.5%  | 中等 | ⭐⭐       |          |
-| # 131 | [分割回文串](https://leetcode-cn.com/problems/palindrome-partitioning) | 63.1%  | 中等 | ⭐        |          |
-| # 22  | [括号生成](https://leetcode-cn.com/problems/generate-parentheses) | 71.0%  | 中等 | ⭐⭐       |          |
-| # 63  | [不同路径 II](https://leetcode-cn.com/problems/unique-paths-ii) | 31.7%  | 中等 | ⭐        |          |
-| # 139 | [单词拆分](https://leetcode-cn.com/problems/word-break)      | 42.0%  | 中等 | ⭐        |          |
-| # 178 | [分数排名](https://leetcode-cn.com/problems/rank-scores)     | 55.3%  | 中等 | ⭐        |          |
-| # 258 | [各位相加](https://leetcode-cn.com/problems/add-digits)      | 63.9%  | 简单 | ⭐        |          |
-| # 53  | [最大子序和](https://leetcode-cn.com/problems/maximum-subarray) | 46.3%  | 简单 | ⭐⭐⭐      |          |
-| # 70  | [爬楼梯](https://leetcode-cn.com/problems/climbing-stairs)   | 46.1%  | 简单 | ⭐⭐⭐      |          |
-| # 32  | [最长有效括号](https://leetcode-cn.com/problems/longest-valid-parentheses) | 27.7%  | 困难 | ⭐        |          |
+| 题号  | 题目显示相关标签                                             | 通过率                                | 难度 | 出题指数 | 出现频率 |
+| ----- | ------------------------------------------------------------ | ------------------------------------- | ---- | -------- | -------- |
+| # 130 | [被围绕的区域](https://leetcode-cn.com/problems/surrounded-regions) | 37.1%                                 | 中等 | ⭐        |          |
+| # 2   | [两数相加](https://leetcode-cn.com/problems/add-two-numbers) | 34.9%                                 | 中等 | ⭐⭐⭐⭐     |          |
+| # 153 | [寻找旋转排序数组中的最小值](https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array) | 49.3%                                 | 中等 | ⭐        |          |
+| # 278 | [第一个错误的版本](https://leetcode-cn.com/problems/first-bad-version) | 32.4%                                 | 简单 | ⭐        |          |
+| # 137 | [只出现一次的数字 II](https://leetcode-cn.com/problems/single-number-ii) | 64.4%                                 | 中等 | ⭐        |          |
+| # 79  | [单词搜索](https://leetcode-cn.com/problems/word-search)     | 38.3%                                 | 中等 | ⭐        |          |
+| # 200 | [岛屿数量](https://leetcode-cn.com/problems/number-of-islands) | 44.7%                                 | 中等 | ⭐        |          |
+| # 88  | [合并两个有序数组](https://leetcode-cn.com/problems/merge-sorted-array) | 44.7%                                 | 简单 | ⭐⭐       |          |
+| # 93  | [复原IP地址](https://leetcode-cn.com/problems/restore-ip-addresses) | 45.2%                                 | 中等 | ⭐        |          |
+| # 196 | [删除重复的电子邮箱](https://leetcode-cn.com/problems/delete-duplicate-emails) | 54.3%                                 | 简单 | ⭐        |          |
+| # 46  | [全排列](https://leetcode-cn.com/problems/permutations)      | 70.5%                                 | 中等 | ⭐⭐       |          |
+| # 131 | [分割回文串](https://leetcode-cn.com/problems/palindrome-partitioning) | 63.1%                                 | 中等 | ⭐        |          |
+| # 22  | [括号生成](https://leetcode-cn.com/problems/generate-parentheses) | 71.0%                                 | 中等 | ⭐⭐       |          |
+| # 63  | [不同路径 II](https://leetcode-cn.com/problems/unique-paths-ii) | 31.7%                                 | 中等 | ⭐        |          |
+| # 139 | [单词拆分](https://leetcode-cn.com/problems/word-break)      | 42.0%                                 | 中等 | ⭐        |          |
+| # 178 | [分数排名](https://leetcode-cn.com/problems/rank-scores)     | 55.3%                                 | 中等 | ⭐        |          |
+| # 258 | [各位相加](https://leetcode-cn.com/problems/add-digits)      | 求数根,找规律的题目.>9则对9取余.考虑0 | 简单 | ⭐        |          |
+| # 53  | [最大子序和](https://leetcode-cn.com/problems/maximum-subarray) | 46.3%                                 | 简单 | ⭐⭐⭐      |          |
+| # 70  | [爬楼梯](https://leetcode-cn.com/problems/climbing-stairs)   | 46.1%                                 | 简单 | ⭐⭐⭐      |          |
+| # 32  | [最长有效括号](https://leetcode-cn.com/problems/longest-valid-parentheses) | 27.7%                                 | 困难 | ⭐        |          |
 
 
 
@@ -122,3 +114,12 @@
 | # 26  | [删除排序数组中的重复项](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array) | 45.3%                      | 简单 |          |          |
 | # 120 | [三角形最小路径和](https://leetcode-cn.com/problems/triangle) | 60.7%                      | 中等 |          |          |
 | # 41  | [缺失的第一个正数](https://leetcode-cn.com/problems/first-missing-positive) | 各回各的位置,再遍历找缺的. | 困难 |          |          |
+
+
+
+
+
+
+
+
+

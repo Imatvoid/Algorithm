@@ -1,7 +1,29 @@
-package leetcode.string;
+93. Restore IP Addresses
 
-import java.util.ArrayList;
-import java.util.List;
+<https://leetcode.com/problems/restore-ip-addresses/>
+
+93. 复原IP地址
+
+<https://leetcode-cn.com/problems/restore-ip-addresses/>
+
+
+## 描述
+
+给定一个只包含数字的字符串，复原它并返回所有可能的 IP 地址格式。
+
+示例:
+```
+输入: "25525511135"
+输出: ["255.255.11.135", "255.255.111.35"]
+```
+
+
+## 思路
+
+DFS
+
+
+```java
 
 public class RestoreIPAddresses {
 
@@ -42,3 +64,5 @@ public class RestoreIPAddresses {
         System.out.println(new RestoreIPAddresses().restoreIpAddresses("0000"));
     }
 }
+
+```

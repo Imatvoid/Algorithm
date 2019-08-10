@@ -6,8 +6,6 @@ import java.io.InputStreamReader;
 
 public class PalindromeLinkedList {
 
-
-
     /**
      * 快慢指针
      * @param head
@@ -22,14 +20,12 @@ public class PalindromeLinkedList {
         ListNode slow = head;
 
         // 寻找中间节点
-        // 1-2 slow=2 fast=null
         // 1-2-3 slow=2 fast=3
         // 1-2-3-4 slow=3 fast=null
         while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
         }
-
 
         // 倒转中间后边的链表 但是没有切换前面的指向
         slow = reverseLinkedList(slow);

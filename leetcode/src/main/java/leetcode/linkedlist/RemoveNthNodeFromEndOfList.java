@@ -13,32 +13,23 @@ public class RemoveNthNodeFromEndOfList {
      * @return
      */
     public ListNode removeNthFromEnd(ListNode head, int n) {
-        if (head == null) {
-            return head;
+        ListNode pre = new ListNode(0);
+        pre.next = head;
+        ListNode preOrigin = pre;
+
+        ListNode fir = head;
+        ListNode sec = head;
+
+        while (n--> 0) {
+            sec = sec.next;
         }
-        // consider remove the origin head
-        ListNode p = new ListNode(-1);
-        p.next = head;
-
-        // early 和 last 之间相差n个距离,当early到达null,last到达倒数第n个节点
-        // 1-2-3-4-5 n=2
-        ListNode earlyStart = p;
-        ListNode lastStart = p;
-
-        ListNode pre = null;
-        int k = 0;
-        while (earlyStart != null) {
-            earlyStart = earlyStart.next;
-            k++;
-            if (k > n) {
-                pre = lastStart;
-                lastStart = lastStart.next;
-            }
+        while (sec!=null){
+            sec=sec.next;
+            pre=fir;
+            fir=fir.next;
 
         }
-        // find
-        pre.next = lastStart.next;
-        return p.next;
-
+        pre.next=pre.next.next;
+        return preOrigin.next;
     }
 }

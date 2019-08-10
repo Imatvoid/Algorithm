@@ -6,6 +6,7 @@ public class TopKFrequentWords {
 
     /**
      * 优先级队列
+     *
      * @param words
      * @param k
      * @return
@@ -25,16 +26,21 @@ public class TopKFrequentWords {
                 }
         );
 
-        for(Map.Entry<String, Integer> entry: map.entrySet())
-        {
+        for (Map.Entry<String, Integer> entry : map.entrySet()) {
             pq.offer(entry);
-            if(pq.size()>k)
+            if (pq.size() > k)
                 pq.poll();
         }
-        while(!pq.isEmpty())
+        while (!pq.isEmpty())
             result.add(0, pq.poll().getKey());
 
         return result;
 
+    }
+
+    public static void main(String[] args) {
+        System.out.println("a".compareTo("c"));
+        System.out.println("a".compareTo("ccc"));
+        System.out.println("a".compareTo("aa"));
     }
 }

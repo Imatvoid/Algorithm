@@ -25,8 +25,6 @@ public class TwoSum {
             }
         }
         return  res;
-
-
     }
 
     /**
@@ -46,11 +44,10 @@ public class TwoSum {
         while(left<right){
             if(sorted[left]+sorted[right]<target){
                 left++;
-                continue;
             }
             else if(sorted[left]+sorted[right]>target){
                 right--;
-                continue;
+
             }
             else{
                 break; //found it! sorted[left]+sorted[right]==target

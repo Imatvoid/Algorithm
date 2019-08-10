@@ -1,4 +1,9 @@
+535. Encode and Decode TinyURL
+
 <https://leetcode.com/problems/encode-and-decode-tinyurl/>
+
+535. TinyURL 的加密与解密
+
 <https://leetcode-cn.com/problems/encode-and-decode-tinyurl/>
 
 
@@ -21,7 +26,7 @@
 其他的办法大概还有取HASH值的前N位，碰撞，不重复就为短网址.这样性能不高。
 
 
-
-
 ## 参考
 https://www.zhihu.com/question/20103344
+
+

@@ -1,6 +1,10 @@
-# 234. Palindrome Linked List(回文链表判断)
+234. Palindrome Linked List(回文链表判断)
 
-+1
+<https://leetcode.com/problems/palindrome-linked-list/>
+
+234. 回文链表
+
+<https://leetcode-cn.com/problems/palindrome-linked-list/>
 
 ## Desc
 

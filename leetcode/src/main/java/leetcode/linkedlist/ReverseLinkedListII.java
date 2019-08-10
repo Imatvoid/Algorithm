@@ -21,12 +21,10 @@ public class ReverseLinkedListII {
         ListNode tail = nNode.next;
         nNode.next = null;
 
-
         pre.next = reverse(mNode);
         findK(pre.next,n-m+1).next=tail;
 
         return  res.next;
-
 
     }
 

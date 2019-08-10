@@ -1,19 +1,32 @@
+import leetcode.linkedlist.ListNode;
+
 import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.List;
+import java.util.Stack;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.SynchronousQueue;
 
 public class Prac {
 
 
-    public static void main(String[] args) throws InterruptedException{
-        BlockingQueue<Integer> queue = new
-                SynchronousQueue<>();
-        System.out.print(queue.offer(1) + " ");
-        System.out.print(queue.offer(2) + " ");
-        System.out.print(queue.offer(3) + " ");
-        System.out.print(queue.take() + " ");
-        System.out.println(queue.size());
+    public static void main(String[] args) throws InterruptedException {
+
+
+    }
+
+    public ListNode deleteDuplicates(ListNode head) {
+        if (head == null) return head;
+
+        ListNode p = head;
+        while (head != null && head.next != null) {
+            if (head.val == head.next.val) {
+                head.next = head.next.next;
+            } else {
+                head = head.next;
+            }
+        }
+        return head;
     }
 
 

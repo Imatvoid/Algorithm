@@ -1,4 +1,4 @@
-package leetcode.medium;
+package leetcode.dp.taildp;
 
 public class ArithmeticSlices {
     //     public int numberOfArithmeticSlices(int[] A) {

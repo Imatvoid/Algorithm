@@ -9,18 +9,39 @@ public class JumpGameII {
     public int jump(int[] nums) {
         int n = nums.length;
 
-        int pre = 0,cur=0, res=0,i=0;
-        while(cur<n-1){
+        int limit = 0, max = 0, res = 0, cur = 0;
+        while (max < n - 1) {
             res++;
-            pre =cur;
-            for(;i<=pre;i++){
-                cur = Math.max(cur,i+nums[i]);
+            limit = max;
+            for (; cur <= limit; cur++) {
+                max = Math.max(max, cur + nums[cur]);
             }
-            if(pre == cur) return -1;
-
-
+            if (limit == max) return -1;
         }
         return res;
 
+    }
+
+    public int jump2(int[] nums) {
+        if (nums == null) return 0;
+        if (nums.length == 1) return 0;
+
+        int max = 0;
+        int count = 0;
+        int cur = 0;
+        boolean res = false;
+        while (true) {
+            count++;
+            int limit = max;
+            for (; cur <= limit; cur++) {
+                max = Math.max(nums[cur] + cur, max);
+            }
+            if (max >= nums.length - 1) {
+                res = true;
+                break;
+            }
+            if (limit == max) break;
+        }
+        return res ? count : 0;
     }
 }

@@ -1,33 +1,10 @@
-# 41. First Missing Positive(首个缺失的正数)
+41. First Missing Positive(首个缺失的正数)
 
-## Desc
+<https://leetcode.com/problems/first-missing-positive/submissions/>
 
-Given an unsorted integer array, find the smallest missing positive integer.
+41. 缺失的第一个正数
 
-**Example 1:**
-
-```
-Input: [1,2,0]
-Output: 3
-```
-
-**Example 2:**
-
-```
-Input: [3,4,-1,1]
-Output: 2
-```
-
-**Example 3:**
-
-```
-Input: [7,8,9,11,12]
-Output: 1
-```
-
-**Note:**
-
-Your algorithm should run in *O*(*n*) time and uses constant extra space.
+<https://leetcode-cn.com/problems/first-missing-positive/submissions/>
 
 ## 描述
 
@@ -54,45 +31,46 @@ Your algorithm should run in *O*(*n*) time and uses constant extra space.
 
 ## 思路
 
-对于[3,4,-1,1] 来说,长度n=4,如果不缺失正数,则应为[1,2,3,4].  
+对于`[3,4,-1,1]` 来说,长度n=4,如果不缺失正数,则应为`[1,2,3,4]`.  
 也就是数字 i 在数组 i-1 的位置上,这种情况,首个缺失的正数只能是n+1,也就是5.  
 
-如果将[3,4,-1,1]中的正数移动到其应该在的位置上,数组调整为:  
-value: [1,-1,3,4].  
-index: [0, 1,2,3].  
+如果将`[3,4,-1,1]`中的正数移动到其应该在的位置上,数组调整为:  
+value: `[1,-1,3,4]`.  
+index: `[0, 1,2,3]`.  
 
 这时候很容易发现缺失了2,因为在数组index=1的位置上,nums[index] != index+1  
 
 按照这种思路,我们遍历数组将数组中的正数调整到合适的位置,注意这里的正数范围应该是1-n.  
-然后遍历数组,找到第一个nums[index] != index+1,返回index+1.  
+然后遍历数组,找到第一个`nums[index != index+1`,返回`index+1`.  
 如果没有找到,则返回n+1.  
 
 ```java
 /**
- * 找到第一个丢失的正数
- *
- * @param nums
- * @return
- */
-public int firstMissingPositive(int[] nums) {
-    int n = nums.length;
-    for (int i = 0; i < n; i++) {
-        while (nums[i] > 0 && nums[i] <= n && nums[nums[i]-1] != nums[i]) {
-            swap(nums, nums[i]-1, i);
+     * 找到第一个丢失的正数
+     *
+     * @param nums
+     * @return
+     */
+    public int firstMissingPositive(int[] nums) {
+        int n = nums.length;
+        for (int i = 0; i < n; i++) {
+            if (nums[i] > 0 && nums[i] <= n && nums[nums[i]-1] != nums[i]) {
+                swap(nums, nums[i]-1, i);
+                i--;
+            }
         }
-    }
-    for (int i = 0; i < n; i++) {
-        if(nums[i] != i+1){
-            return i+1;
+        for (int i = 0; i < n; i++) {
+            if(nums[i] != i+1){
+                return i+1;
+            }
         }
+        return  n+1;
+
     }
-    return  n+1;
 
-}
-
-public void swap(int[] nums, int i, int j) {
-    int t = nums[i];
-    nums[i] = nums[j];
-    nums[j] = t;
-}
+    public void swap(int[] nums, int i, int j) {
+        int t = nums[i];
+        nums[i] = nums[j];
+        nums[j] = t;
+    }
 ```

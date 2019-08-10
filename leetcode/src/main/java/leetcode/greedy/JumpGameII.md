@@ -1,4 +1,9 @@
+45. Jump Game II
+
 <https://leetcode-cn.com/problems/jump-game-ii/submissions/>
+
+45. 跳跃游戏 II
+
 <https://leetcode.com/problems/jump-game-ii/submissions/>
 
 ## 描述
@@ -29,6 +34,22 @@
 
 我们这里贪的是一个能到达的最远范围，我们遍历当前跳跃能到的所有位置，然后根据该位置上的跳力来预测下一步能跳到的最远距离，贪出一个最远的范围，一旦当这个范围到达末尾时，当前所用的步数一定是最小步数。
 
-我们需要两个变量cur和pre分别来保存当前的能到达的最远位置和之前能到达的最远位置，只要cur未达到最后一个位置则循环继续，pre先赋值为cur的值，表示上一次循环后能到达的最远位置，如果当前位置i小于等于pre，说明还是在上一跳能到达的范围内，我们根据当前位置加跳力来更新cur，更新cur的方法是比较当前的cur和i + A[i]之中的较大值，如果题目中未说明是否能到达末尾，
 
-我们还可以判断此时pre和cur是否相等，如果相等说明cur没有更新，即无法到达末尾位置，返回-1
+
+```java
+    public int jump(int[] nums) {
+        int n = nums.length;
+
+        int limit = 0, max = 0, res = 0, cur = 0;
+        while (max < n - 1) {
+            res++;
+            limit = max;
+            for (; cur <= limit; cur++) {
+                max = Math.max(max, cur + nums[cur]);
+            }
+            if (limit == max) return -1;
+        }
+        return res;
+
+    }
+```
