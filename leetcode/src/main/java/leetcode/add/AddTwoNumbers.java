@@ -17,6 +17,7 @@ public class AddTwoNumbers {
         int over = 0;
         while (l1!=null || l2!=null){
             ListNode a = l1==null? new ListNode(0) :l1;
+            //这里可能需要特殊处理下
             l1 = l1==null?null:l1.next;
 
             ListNode b = l2==null? new ListNode(0) :l2;

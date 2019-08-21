@@ -1,8 +1,8 @@
-442. Find All Duplicates in an Array
+`442. Find All Duplicates in an Array`
 
 <https://leetcode.com/problems/find-all-duplicates-in-an-array/>
 
-442. 数组中重复的数据
+`442. 数组中重复的数据`
 
 <https://leetcode-cn.com/problems/find-all-duplicates-in-an-array/>
 

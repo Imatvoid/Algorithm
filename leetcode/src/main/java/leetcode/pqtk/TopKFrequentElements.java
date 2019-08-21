@@ -1,34 +1,35 @@
 package leetcode.pqtk;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class TopKFrequentElements {
 
-    //     public List<Integer> topKFrequent(int[] nums, int k) {
-//         Map<Integer, Integer> map = new HashMap<>();
-//         for(int n: nums){
-//             map.put(n, map.getOrDefault(n,0)+1);
-//         }
+    public List<Integer> topKFrequent2(int[] nums, int k) {
 
-//         PriorityQueue<Map.Entry<Integer, Integer>> maxHeap =
-//                          new PriorityQueue<>((a,b)->(b.getValue()-a.getValue()));
-//         for(Map.Entry<Integer,Integer> entry: map.entrySet()){
-//             maxHeap.add(entry);
-//         }
+        Map<Integer,Integer>  map = new HashMap<>();
 
-//         List<Integer> res = new ArrayList<>();
-//         while(res.size()<k){
-//             Map.Entry<Integer, Integer> entry = maxHeap.poll();
-//             res.add(entry.getKey());
-//         }
-//         return res;
-//     }
+        for(int i =0;i<nums.length;i++){
+            map.put(nums[i],map.getOrDefault(nums[i],0)+1);
+        }
+
+        PriorityQueue<Map.Entry<Integer,Integer>> priorityQueue = new PriorityQueue<>((a,b) -> b.getValue()-a.getValue());
+        for (Map.Entry<Integer,Integer> e: map.entrySet()) {
+            priorityQueue.add(e);
+        }
+
+        List<Integer> arrayList = new ArrayList<>();
+        while (arrayList.size()<k){
+            Map.Entry<Integer,Integer> e = priorityQueue.poll();
+            arrayList.add(e.getKey());
+        }
+        return  arrayList;
+
+    }
+
 
     /**
      * 桶排序
+     *
      * @param nums
      * @param k
      * @return

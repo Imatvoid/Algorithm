@@ -1,4 +1,10 @@
+
+`692. Top K Frequent Words`
+
 <https://leetcode-cn.com/problems/top-k-frequent-words/>
+
+`692. 前K个高频单词`
+
 <https://leetcode.com/problems/top-k-frequent-words/>
 
 ## 描述
@@ -30,6 +36,44 @@
 
 
 ## 思路
-topK问题,优先级队列.
-TopK问题,先用map统计次数,然后使用priorityQueue排序.
+topK问题,优先级队列.    
+TopK问题,先用map统计次数,然后使用优先级priorityQueue排序.     
+注意这里的优先级队列,本质就是小顶堆,当然这个小的关系是你自己定义的.你总是可以得到一种比较关系的前K个元素.    
+这里的传入比较关系函数是`a.getValue() == b.getValue() ? a.getKey().compareTo(b.getKey()) : b.getValue() - a.getValue()`    
+也就是a大,就返回<0的值,就把它放到队列前面,如果a和b值相等,就按字典序排序.   
 
+
+```java
+/**
+     * 优先级队列
+     *
+     * @param words
+     * @param k
+     * @return
+     */
+    public List<String> topKFrequent(String[] words, int k) {
+        LinkedList<String> result = new LinkedList<>();
+
+        HashMap<String, Integer> map = new HashMap<>();
+        for (String s : words) {
+            map.put(s, map.getOrDefault(s, 0) + 1);
+        }
+
+        PriorityQueue<Map.Entry<String, Integer>> pq = new PriorityQueue<>(
+
+                (a, b) -> {
+                    return a.getValue() == b.getValue() ? a.getKey().compareTo(b.getKey()) : b.getValue() - a.getValue();
+                }
+        );
+        for (Map.Entry<String, Integer> entry : map.entrySet()) {
+            pq.offer(entry);
+        }
+        while (result.size() < k) {
+            result.addLast(pq.poll().getKey());
+        }
+
+
+        return result;
+
+    }
+```

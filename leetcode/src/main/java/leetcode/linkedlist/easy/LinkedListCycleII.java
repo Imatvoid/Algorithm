@@ -1,4 +1,6 @@
-package leetcode.linkedlist;
+package leetcode.linkedlist.easy;
+
+import leetcode.linkedlist.ListNode;
 
 public class LinkedListCycleII {
 

@@ -1,11 +1,13 @@
-287. Find the Duplicate Number
+`287. Find the Duplicate Number`
 
 <https://leetcode.com/problems/find-the-duplicate-number/>
 
-287. 寻找重复数
+`287. 寻找重复数`
 
 <https://leetcode-cn.com/problems/find-the-duplicate-number/>
 
+
+<!-- more -->
 
 ## 描述
 给定一个包含 n + 1 个整数的数组 nums，其数字都在 1 到 n 之间（包括 1 和 n），可知至少存在一个重复的整数。假设只有一个重复的整数，找出这个重复的数。
@@ -27,7 +29,7 @@
 时间复杂度小于 O(n2) 。  
 数组中只有一个重复的数字，但它可能不止重复出现一次。   
 
-## 思路
+## 思路1
 
 假设n=5, array={1,2,3,4,5}.  允许其中任何一个数字重复,假设2重复      
 
@@ -69,4 +71,34 @@ public int findDuplicate(int[] nums) {
         }
         return left;
     }
+```
+
+
+
+## 思路2
+把所有数字移动到合适位置.然后找到第一个不对的.
+
+
+```java
+    public int findDuplicate3(int[] nums) {
+        int n = nums.length;
+        for (int i = 0; i < n; i++) {
+            if (nums[nums[i]-1] != nums[i]) {
+                swap(nums, nums[i]-1, i);
+                i--;
+            }
+        }
+        for (int i = 0; i < n; i++) {
+            if(nums[i] != i+1){
+                return nums[i];
+            }
+        }
+        return  -1;
+    }
+    public void swap(int[] nums, int i, int j) {
+            int t = nums[i];
+            nums[i] = nums[j];
+            nums[j] = t;
+        }
+
 ```

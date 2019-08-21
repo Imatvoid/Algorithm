@@ -1,5 +1,9 @@
 原题链接
+`371. Sum of Two Integers`
 <https://leetcode-cn.com/problems/sum-of-two-integers/submissions/>
+
+`371. 两整数之和`
+
 <https://leetcode.com/problems/sum-of-two-integers/submissions/>
 
 ## 描述

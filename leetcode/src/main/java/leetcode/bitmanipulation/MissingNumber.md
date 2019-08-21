@@ -1,8 +1,8 @@
-268. Missing Number
+`268. Missing Number`
 
 <https://leetcode.com/problems/missing-number/submissions/>
 
-268. 缺失数字
+`268. 缺失数字`
 
 <https://leetcode-cn.com/problems/missing-number/submissions/>
 
