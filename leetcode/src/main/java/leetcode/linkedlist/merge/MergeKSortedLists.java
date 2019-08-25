@@ -1,4 +1,6 @@
-package leetcode.linkedlist;
+package leetcode.linkedlist.merge;
+
+import leetcode.linkedlist.ListNode;
 
 import java.util.Comparator;
 import java.util.Map;
@@ -14,6 +16,7 @@ public class MergeKSortedLists {
         for (ListNode node : lists) {
             while (node != null) {
                 map.put(node.val, map.getOrDefault(node.val, 0) + 1);
+                node = node.next;
             }
         }
 

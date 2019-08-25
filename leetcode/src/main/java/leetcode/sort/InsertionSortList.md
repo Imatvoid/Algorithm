@@ -1,20 +1,13 @@
----
-title: 147. Insertion Sort List(使用插入排序对链表进行排序)
-date: 2019-05-20 21:22:06
-tags:
+`147. Insertion Sort List`
 
-- leetcode-medium
-- leetcode-linkedlist
-- leetcode-sort
-categories:
-- leetCode
----
+<https://leetcode.com/problems/insertion-sort-list/>
 
+`147. 对链表进行插入排序`
+
+<https://leetcode-cn.com/problems/insertion-sort-list/>
 ## Desc
 
 Sort a linked list using insertion sort.
-
-
 
 ![img](https://upload.wikimedia.org/wikipedia/commons/0/0f/Insertion-sort-example-300px.gif)
 A graphical example of insertion sort. The partial sorted list (black) initially contains only the first element in the list.
@@ -54,60 +47,25 @@ Output: -1->0->3->4->5
 ## 实现
 
 ```java
- public ListNode insertionSortList(ListNode head) {
+ 
+public ListNode insertionSortList(ListNode head) {
         if (head == null || head.next == null) return head;
 
-        ListNode tmp = head.next;
-        ListNode pre = head;
-        int index = 2;
-        while (tmp != null) {
+        ListNode Dummy = new ListNode(-1);//这里只是起一个新节点,不与head关联.
 
-            int index2 = findIndex(head, tmp);
-            // 1 3 2=tmp
-            if (index2 < index) {
-                pre.next = tmp.next;
-                head = insertList(head, index2, tmp);
-                tmp = pre.next;
+        ListNode cur = head;
+        while (cur !=null){
+            ListNode pre = Dummy;
+            ListNode next = cur.next;
+            while (pre.next !=null && pre.next.val < cur.val){
+                pre =pre.next;
             }
-            // 1 2 3=tmp
-            else {
-                pre = tmp;
-                tmp = tmp.next;
-            }
-            index++;
+            cur.next = pre.next;
+            pre.next=cur;
 
+            cur =next;
         }
-        return  head;
-
+        return  Dummy.next;
     }
-
-    int findIndex(ListNode head, ListNode listNode) {
-        int index = 1;
-        while (head.val < listNode.val ) {
-            head = head.next;
-            index++;
-        }
-
-        return index;
-
-    }
-
-    ListNode insertList(ListNode head, int index, ListNode insert) {
-        if (index == 1) {
-            insert.next = head;
-            return insert;
-        }
-        ListNode tmp = head;
-        index = index - 2;
-        while (index > 0) {
-            tmp = tmp.next;
-            index--;
-        }
-        insert.next = tmp.next;
-        tmp.next = insert;
-        return head;
-
-    }
-
 ```
 

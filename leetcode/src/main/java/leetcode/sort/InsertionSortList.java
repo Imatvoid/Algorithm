@@ -7,27 +7,32 @@ public class InsertionSortList {
     public ListNode insertionSortList(ListNode head) {
         if (head == null || head.next == null) return head;
 
-        ListNode tmp = head.next;
-        ListNode pre = head;
-        int index = 2;
-        while (tmp != null) {
+        ListNode Dummy = new ListNode(-1);//这里只是起一个新节点,不与head关联.
 
-            int index2 = findIndex(head, tmp);
-            // 1 3 2=tmp
-            if (index2 < index) {
-                pre.next = tmp.next;
-                head = insertList(head, index2, tmp);
-                tmp = pre.next;
+        ListNode cur = head;
+        while (cur !=null){
+            ListNode pre = Dummy;
+            ListNode next = cur.next;
+            while (pre.next !=null && pre.next.val < cur.val){
+                pre =pre.next;
             }
-            // 1 2 3=tmp
-            else {
-                pre = tmp;
-                tmp = tmp.next;
-            }
-            index++;
+            cur.next = pre.next;
+            pre.next=cur;
 
+            cur =next;
         }
-        return  head;
+        return  Dummy.next;
+    }
+
+    public static void main(String[] args) {
+        ListNode l1 = new ListNode(1);
+        ListNode l2 = new ListNode(2);
+        ListNode l3 = new ListNode(3);
+        ListNode l4 = new ListNode(4);
+        l4.next=l1;
+        l1.next=l3;
+        l3.next=l2;
+        new InsertionSortList().insertionSortList(l4);
 
     }
 
@@ -56,21 +61,6 @@ public class InsertionSortList {
         insert.next = tmp.next;
         tmp.next = insert;
         return head;
-
-    }
-
-    void insetSort(int [] arr,int start, int end){
-
-        for (int i = start+1; i <= end ; i++) {
-            int tmp = arr[i];
-            int j =i-1;
-            while (j>= 0 && arr[j]>tmp){
-                arr[j+1]=arr[j];
-                j--;
-            }
-            arr[j+1]=tmp;
-
-        }
 
     }
 
