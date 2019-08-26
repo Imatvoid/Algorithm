@@ -1,4 +1,11 @@
-class Solution {
+package leetcode.notverymeaningful;
+
+/**
+ * @Author: yangxu
+ * @Date: 2019/8/26 下午11:16
+ */
+public class RomanToInteger {
+
     public int romanToInt(String s) {
         int out = 0;
         for (int i = 0; i < s.length(); i++) {
