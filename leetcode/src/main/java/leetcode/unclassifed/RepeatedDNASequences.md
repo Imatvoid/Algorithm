@@ -1,6 +1,9 @@
-Repeated DNA Sequences  
-重复的DNA序列   
+`Repeated DNA Sequences  `
+
 <https://leetcode.com/problems/repeated-dna-sequences/>  
+
+`重复的DNA序列   `
+
 <https://leetcode-cn.com/problems/repeated-dna-sequences/>
 
 ## 描述
@@ -18,10 +21,29 @@ Repeated DNA Sequences
 
 ## 思路
 
-不想节省空间的话可以直接使用set,需要节省空间的话,可以把字符序列转成整数
+
+不想节省空间的话可以直接使用set
+
+```java
+public List<String> findRepeatedDnaSequences(String s) {
+        Set seen = new HashSet(), repeated = new HashSet();
+        for (int i = 0; i + 9 < s.length(); i++) {
+            String ten = s.substring(i, i + 10);
+            if (!seen.add(ten))
+                repeated.add(ten);
+        }
+        return new ArrayList(repeated);
+    }
+```
 
 
-通过对Dicsuss讨论的学习，发现有人说上面native方法超时是因为字符串存储浪费了太多的空间和时间，因此可以考虑用整数存储，即二进制方法。这个思路非常简单，这里一共有四个字母：A，C，G，T。我们转换整数的思路如下：
+
+需要节省空间的话,可以把字符序列转成整数
+
+
+通过对Dicsuss讨论的学习，发现有人说上面native方法超时是因为字符串存储浪费了太多的空间和时间，因此可以考虑用整数存储
+
+，即二进制方法。这个思路非常简单，这里一共有四个字母：A，C，G，T。我们转换整数的思路如下：
 
 A = 00，C = 01，G = 10，T = 11。
 

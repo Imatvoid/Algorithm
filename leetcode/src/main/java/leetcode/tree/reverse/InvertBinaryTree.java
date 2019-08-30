@@ -1,18 +1,12 @@
 package leetcode.tree.reverse;
 
+import leetcode.tree.TreeNode;
+
 import java.util.LinkedList;
 import java.util.Queue;
 
 public class InvertBinaryTree {
-    static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
 
-        TreeNode(int x) {
-            val = x;
-        }
-    }
 
     /**
      * 递归写法
@@ -26,7 +20,6 @@ public class InvertBinaryTree {
         TreeNode right = invertTree(root.right);
 
         TreeNode temp = left;
-
         root.left = right;
         root.right = temp;
 

@@ -34,39 +34,9 @@ public class BinaryTreeInorderTraversal {
     }
 
 
-    /**
-     * 非递归
-     * @param root
-     * @return
-     */
+
+
     public List<Integer> inorderTraversal2(TreeNode root) {
-        List<Integer> list = new ArrayList<Integer>();
-        if(root == null){
-            return list;
-        }
-
-        Stack<TreeNode> stack = new Stack<TreeNode>();
-        stack.add(root);
-        while(!stack.empty()){
-            TreeNode cur = stack.pop();
-            // 一直走到最左端，直到left为null
-            while (cur != null) {
-                stack.add(cur);
-                cur = cur.left;
-            }
-            if(stack.size()>0){
-                cur = stack.pop();
-            }
-            if (cur != null) {
-                list.add(cur.val);
-                stack.add(cur.right);
-            }
-        }
-
-        return list;
-    }
-
-    public List<Integer> inorderTraversal3(TreeNode root) {
         List<Integer> list = new ArrayList<Integer>();
         if(root == null){
             return list;
@@ -98,7 +68,7 @@ public class BinaryTreeInorderTraversal {
         TreeNode rr  = new TreeNode(2);
         rr.left = new TreeNode(3);
         root.right =rr;
-        new BinaryTreeInorderTraversal().inorderTraversal2(root);
+        new BinaryTreeInorderTraversal().inorderTraversal(root);
 
     }
 }

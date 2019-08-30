@@ -1,4 +1,4 @@
-package leetcode.string;
+package leetcode.dp;
 
 public class LongestSubstringWithoutRepeatingCharacters {
 

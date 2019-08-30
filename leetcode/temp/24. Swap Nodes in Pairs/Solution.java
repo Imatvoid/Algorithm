@@ -26,7 +26,7 @@ class Solution {
                 }
                 foreNode.next.next=tempNode.next;
                 tempNode.next =foreNode.next;
-               foreNode.next = tempNode;
+                foreNode.next = tempNode;
                 foreNode = tempNode.next;
               
             }

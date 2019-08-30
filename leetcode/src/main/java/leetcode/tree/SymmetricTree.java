@@ -7,11 +7,12 @@ public class SymmetricTree {
 
         return  helper(root.left,root.right);
 
-    }
 
+
+    }
     public boolean helper(TreeNode left,TreeNode right){
 
-        if(left == right){
+        if(left ==null && right ==null){
             return  true;
         }
 

@@ -30,7 +30,6 @@ public class MultiplyStrings {
             int mul = (a*b+over)%10;
             over = (a*b+over)/10;
             sb.append(mul);
-
         }
 
         if(over>0){
@@ -58,14 +57,13 @@ public class MultiplyStrings {
             int a = i>=0 ? num1.charAt(i--)-'0':0;
             int b = j>=0 ? num2.charAt(j--)-'0':0;
             int sum = (a + b+ over)%10;
-            sb.append(sum);
             over = (a + b+ over)/10;
+            sb.append(sum);
         }
         if(over==1){
             sb.append(1);
         }
         return  sb.reverse();
-
 
     }
     public static void main(String[] args) {

@@ -3,53 +3,51 @@ package leetcode.linkedlist;
 public class ReverseNodesInkGroup {
 
     public ListNode reverseKGroup(ListNode head, int k) {
-        if (head == null) return head;
-        ListNode res1 = null;
-        boolean b = true;
+        if (head == null || head.next == null) return head;
+        // 至少有两个节点
+        ListNode dummy = new ListNode(-1);
+        dummy.next = head;
 
-        ListNode res2 = head;
-
+        ListNode t = head;
+        ListNode pre = dummy;
         int i = 1;
-        ListNode pre = new ListNode(-1);
-        pre.next=head;
-        while (head != null) {
-            head = head.next;
-            i++;
-            if (i == k && head != null) {
-                ListNode t = head.next;
-                ListNode tail = pre.next;
 
-                head.next = null;
-                if (b) {
-                    res1 = reverse(pre.next);
-                    b = false;
-                } else {
-                    pre.next = reverse(pre.next);
-                }
-                tail.next = t;
-                pre = tail;
-                head = t;
-                i = 1;
+        while (t != null) {
+            if (i % k == 0) {
+                ListNode next = t.next;
+                t.next = null;
+                ListNode[] res = reverse(pre.next);
 
+                res[0].next = next;
+                pre.next = res[1];
+                pre = res[0];
+
+                t = next;
+                i++;
+
+            } else {
+                t = t.next;
+                i++;
             }
         }
 
-        if (!b) {
-            return res1;
-        } else {
-            return res2;
-        }
+
+        return dummy.next;
     }
 
-    ListNode reverse(ListNode head) {
+
+    ListNode[] reverse(ListNode head) {
+        ListNode[] res = new ListNode[2];
+        res[0] = head;
         ListNode pre = null;
         while (head != null) {
-            ListNode t = head.next;
+            ListNode next = head.next;
             head.next = pre;
             pre = head;
-            head = t;
+            head = next;
         }
-        return pre;
+        res[1]=pre;
+        return res;
 
     }
 

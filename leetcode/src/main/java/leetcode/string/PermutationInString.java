@@ -5,20 +5,20 @@ import java.util.Arrays;
 public class PermutationInString {
 
     /**
-     * 每次新建数组
+     * 滑动窗口+hash
      *
      * @param s1
      * @param s2
      * @return
      */
-    public boolean checkInclusion2(String s1, String s2) {
+    public boolean checkInclusion(String s1, String s2) {
         int s1Len = s1.length();
         int a[] = new int[26];
         int b[] = new int[26];
         for (char c : s1.toCharArray()) {
             a[c - 'a']++;
         }
-        for (int i = 0; i < s2.length() && (i + s1Len) <= s2.length(); i++) {
+        for (int i = 0; i < s2.length() && (i + s1Len-1) <s2.length(); i++) {
 
             for (int k = i; k < i + s1Len; k++) {
                 b[s2.charAt(k) - 'a']++;
@@ -40,7 +40,7 @@ public class PermutationInString {
         return false;
     }
 
-    public boolean checkInclusion(String s1, String s2) {
+    public boolean checkInclusion2(String s1, String s2) {
         if(s1.length()>s2.length()){
             return false;
         }

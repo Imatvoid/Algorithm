@@ -52,7 +52,32 @@ for (int i = 0; i < len; i++) {
 
 ```
 
-## 思路
+## 思路1
+重插入,和`283. Move Zeroes`一个做法
+
+```java
+/**
+     * 重插入的方式
+     * @param nums
+     * @param elem
+     * @return
+     */
+    public int removeElement(int[] nums, int elem) {
+        if (nums == null || nums.length == 0) return 0;
+
+        int insertPos = 0;
+        for (int num : nums) {
+            if (num != elem) nums[insertPos++] = num;
+        }
+
+        // while (insertPos < nums.length) {
+        //     nums[insertPos++] = 0;
+        // }
+        return insertPos;
+    }
+```
+
+## 思路2
 直接遍历,交换. 也可以用双指针.
 ```java
  public int removeElement(int[] A, int elem) {

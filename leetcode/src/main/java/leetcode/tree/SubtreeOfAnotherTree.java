@@ -1,67 +1,64 @@
 package leetcode.tree;
 
+import java.util.LinkedList;
 import java.util.Stack;
 
 public class SubtreeOfAnotherTree {
 
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
-    }
 
     public boolean isSubtree(TreeNode s, TreeNode t) {
 
         String s1 = preOrder(s);
+       // System.out.println(s1);
         String s2 = preOrder(t);
-
-        return  s1.contains(s2);
+       // System.out.println(s2);
+        return s1.contains(s2);
 
     }
 
-    String preOrder(TreeNode root){
+    String preOrder(TreeNode root) {
         String res = "";
-        Stack<TreeNode> stack = new Stack<TreeNode>();
-        stack.add(root);
-        if(!stack.isEmpty()){
-
+        LinkedList<TreeNode> stack = new LinkedList<TreeNode>();
+        stack.push(root);
+        while (!stack.isEmpty()) {
             TreeNode node = stack.pop();
-            if(node != null) {
-                res = res + node.val;
-                stack.add(node.right);
-                stack.add(node.left);
+            if (node != null) {
+                res = res +"," +node.val;
+                stack.push(node.right);
+                stack.push(node.left);
 
-            }else {
-                res +="null";
+            } else {
+                res += ",null";
             }
         }
 
-        return  res;
+        return res;
 
     }
 
-    String preOrder2(TreeNode root){
-        String res = "";
-        res =res+1;
-
-        return  res;
-
-    }
 
     public static void main(String[] args) {
 
+//        LinkedList<Integer> linkedList = new LinkedList<Integer>();
+//        linkedList.push(1);
+//        linkedList.push(null);
+//        linkedList.push(null);
+//        linkedList.push(null);
+//        System.out.println(linkedList.size());
+//        System.out.println(linkedList.pop());
+//        System.out.println(linkedList.pop());
+//        System.out.println(linkedList.pop());
+//        System.out.println(linkedList.pop());
+//        System.out.println(linkedList.pop());
 
-        TreeNode root= new TreeNode(3);
-        TreeNode root1= new TreeNode(4);
-        TreeNode root2= new TreeNode(5);
-        root.left=root1;
-        root.right=root2;
+
+        TreeNode root = new TreeNode(3);
+        TreeNode root1 = new TreeNode(4);
+        TreeNode root2 = new TreeNode(5);
+        root.left = root1;
+        root.right = root2;
 
 
-        System.out.println( new SubtreeOfAnotherTree().preOrder(root));
+        System.out.println(new SubtreeOfAnotherTree().preOrder(root));
     }
 }

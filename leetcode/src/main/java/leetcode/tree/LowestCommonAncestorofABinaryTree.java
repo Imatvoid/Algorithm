@@ -1,34 +1,29 @@
 package leetcode.tree;
 
 
-
 public class LowestCommonAncestorofABinaryTree {
-    class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-        TreeNode(int x) { val = x; }
-    }
 
 
     /**
-     * 最近公共祖先
-     * @param root
+     * 在当前树搜寻 p/q  节点值是唯一的
+     *
+     * @param node
      * @param p
      * @param q
      * @return
      */
-    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+    public TreeNode lowestCommonAncestor(TreeNode node, TreeNode p, TreeNode q) {
 
-        if(root == null || root == p || root ==q){
-            return root;
+        if (node == null || node == p || node == q) {
+            return node;
         }
-        TreeNode left = lowestCommonAncestor(root.left,p,q);
-        TreeNode right = lowestCommonAncestor(root.right,p,q);
-        if(left !=null && right !=null){
-            return root;
+        TreeNode left = lowestCommonAncestor(node.left, p, q);
+        TreeNode right = lowestCommonAncestor(node.right, p, q);
+        // 在左右都搜寻到了，返回根节点。
+        if (left != null && right != null) {
+            return node;
         }
-        return left!=null?left:right;
+        return left != null ? left : right;
         // 一样的
         //return right!=null?right:left;
 

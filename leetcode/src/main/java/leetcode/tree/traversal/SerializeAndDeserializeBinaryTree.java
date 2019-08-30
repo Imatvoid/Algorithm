@@ -7,74 +7,58 @@ import java.util.Queue;
 
 public class SerializeAndDeserializeBinaryTree {
 
-
-
-
-    /**
-     * 层次遍历
-     *
-     * @param root
-     * @return
-     */
-    // Encodes a leetcode.tree to a single leetcode.string.
+    // Encodes a tree to a single string.
     public String serialize(TreeNode root) {
+        if (root == null)
+            return "";
         StringBuilder sb = new StringBuilder();
-
-        Queue<TreeNode> queue = new LinkedList<>();
-        queue.add(root);
+        LinkedList<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
         while (!queue.isEmpty()) {
             int size = queue.size();
             while (size-- > 0) {
                 TreeNode node = queue.poll();
                 if (node != null) {
-                    sb.append(node.val).append(",");
-                    queue.add(node.left);
-                    queue.add(node.right);
-
+                    sb.append(node.val + ",");
+                    queue.offer(node.left);
+                    queue.offer(node.right);
                 } else {
-                    sb.append("null").append(",");
+                    sb.append("nil" + ",");
                 }
-
             }
+
         }
-        return  sb.substring(0,sb.length()-1);
+        return sb.substring(0, sb.length() - 1);
 
     }
 
-    // Decodes your encoded data to leetcode.tree.
+    // Decodes your encoded data to tree.
     public TreeNode deserialize(String data) {
-
-        if(data ==null || data.length() ==0){
-            return  null;
+        if (data == null || data.length() == 0) {
+            return null;
         }
         String[] tree = data.split(",");
-
-        TreeNode root = new TreeNode(Integer.valueOf(tree[0]));
-        Queue<TreeNode> queue = new LinkedList<TreeNode>();
-        queue.add(root);
-        int i =1;
-        while (i<tree.length){
+        int i = 1;
+        TreeNode root = new TreeNode(Integer.parseInt(tree[0]));
+        LinkedList<TreeNode> queue = new LinkedList<TreeNode>();
+        queue.offer(root);
+        while (i < tree.length) {
             TreeNode node = queue.poll();
-            String left=tree[i];
-            String right=tree[i+1];
-            if(!left.equals("null")){
-                TreeNode lf=new TreeNode(Integer.valueOf(left));
-                node.left=lf;
-                queue.add(lf);
-            }else{
-                node.left=null;
+
+            if (!"nil".equals(tree[i])) {
+                node.left = new TreeNode(Integer.parseInt(tree[i]));
+                queue.offer(node.left);
             }
-            if(!right.equals("null")){
-                TreeNode rt=new TreeNode(Integer.valueOf(right));
-                node.right=rt;
-                queue.add(rt);
-            }else{
-                node.right=null;
+
+            if (!"nil".equals(tree[i + 1])) {
+                node.right = new TreeNode(Integer.parseInt(tree[i+1]));
+                queue.offer(node.right);
             }
-            i+=2;
+
+            i += 2;
+
         }
         return root;
-
 
     }
 

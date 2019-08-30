@@ -1,4 +1,10 @@
+`94. Decode String`
+
 <https://leetcode-cn.com/problems/decode-string/>
+
+
+`394. 字符串解码`
+
 <https://leetcode.com/problems/decode-string/>
 
 ## 描述
@@ -18,4 +24,50 @@ s = "2[abc]3[cd]ef", 返回 "abcabccdcdcdef".
 ```
 
 ## 思路
-Stack
+需要两个Stack,一个存放数字,一个存放str.
+
+注意数字可能是123这种连续的.
+
+一旦遇到`[`,就把res先保存起来. 遇到`]`则取出.与num*res叠加.
+```java
+ public String decodeString(String s) {
+        Stack<Integer> numS = new Stack<>();
+        Stack<String> resS = new Stack<>();
+
+        char[] cs = s.toCharArray();
+        String res = "";
+
+        for (int i = 0; i < cs.length; i++) {
+            if (Character.isDigit(cs[i])) {
+                int count = 0;
+                while (Character.isDigit(cs[i])) {
+                    count = count * 10 + cs[i] - '0';
+                    i++;
+                }
+                // 这里要小心
+                i--;
+                numS.push(count);
+                continue;
+            }
+            if (cs[i] == '[') {
+                resS.push(res);
+                res ="";
+                continue;
+            }
+            if (cs[i] == ']' ) {
+                StringBuilder sb =new StringBuilder(resS.pop());
+                int count = numS.pop();
+                while (count>0){
+                 count--;
+                 sb.append(res);
+                }
+                res = sb.toString();
+                continue;
+            }
+           res += cs[i];
+        }
+        return res;
+
+    }
+
+```
