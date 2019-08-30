@@ -21,3 +21,59 @@
 
 ### 思路
 
+先提取一个公共方法,可以反转链表，返回头尾节点。
+
+建立一个dummy节点，dummy.next=head。 方便反转头节点。
+
+剩下的都是正常操作了，这个可以拓展到K。 把  `i % 2 ==0` 变成 `i % k== 0`即可
+
+
+```java
+public ListNode swapPairs(ListNode head) {
+        if (head == null || head.next == null) return head;
+        // 至少有两个节点
+        ListNode dummy = new ListNode(-1);
+        dummy.next = head;
+
+        ListNode t = head;
+        ListNode pre = dummy;
+        int i = 1;
+
+        while (t != null) {
+            if (i % 2 == 0) {
+                ListNode next = t.next;
+                t.next = null;
+                ListNode[] res = reverse(pre.next);
+
+                res[0].next = next;
+                pre.next = res[1];
+                pre = res[0];
+
+                t = next;
+                i++;
+
+            } else {
+                t = t.next;
+                i++;
+            }
+        }
+
+
+        return dummy.next;
+    }
+
+    ListNode[] reverse(ListNode head) {
+        ListNode[] res = new ListNode[2];
+        res[0] = head;
+        ListNode pre = null;
+        while (head != null) {
+            ListNode next = head.next;
+            head.next = pre;
+            pre = head;
+            head = next;
+        }
+        res[1]=pre;
+        return res;
+
+    }
+```
